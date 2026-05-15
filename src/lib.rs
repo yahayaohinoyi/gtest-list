@@ -42,6 +42,24 @@ pub fn list_tests_static(_binary: &Path) -> Result<Vec<FullTestName>, String> {
     Err("static listing is not yet implemented".to_string())
 }
 
+#[derive(Debug)]
+pub struct TestInfo {
+    pub suite: String,
+    pub name: String,
+    pub file: String,
+    pub line: u64,
+}
+
+impl std::fmt::Display for TestInfo {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}.{} ({}:{})", self.suite, self.name, self.file, self.line)
+    }
+}
+
+pub fn list_tests_with_location(_binary: &Path) -> Result<Vec<TestInfo>, String> {
+    Err("test location extraction is not yet implemented".to_string())
+}
+
 pub fn parse_list_output(output: &str) -> Result<Vec<FullTestName>, String> {
     let mut tests = Vec::new();
     let mut current_suite: Option<&str> = None;

@@ -33,6 +33,7 @@ fn main() {
     let status = Command::new(&compiler)
         .args([
             "-std=c++17",
+            "-g",
             "-isystem",
             gtest_include.to_str().unwrap(),
             "-I",
