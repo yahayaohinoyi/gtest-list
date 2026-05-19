@@ -13,6 +13,7 @@ fn main() {
             .args([
                 "clone",
                 "--depth=1",
+                "--branch=v1.16.0",
                 "https://github.com/google/googletest.git",
                 gtest_dir.to_str().unwrap(),
             ])
